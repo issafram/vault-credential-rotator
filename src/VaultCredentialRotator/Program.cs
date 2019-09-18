@@ -20,6 +20,10 @@ namespace VaultCredentialRotator
 
         static async Task Main(string[] args)
         {
+            Console.WriteLine("Vault Credential Rotator");
+            Console.WriteLine("Created by Issa Fram");
+            Console.WriteLine();
+            
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();
