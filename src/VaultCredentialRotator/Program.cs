@@ -206,19 +206,9 @@ namespace VaultCredentialRotator
         static List<char> GetAcceptableChars()
         {
             var chars = new List<char>();
-            chars.AddRange(Range(32, 47).ToList().Select(x => (char) x));
-            chars.AddRange(Range(48, 57).ToList().Select(x => (char) x));
-            chars.AddRange(Range(58, 64).ToList().Select(x => (char)x));
-            chars.AddRange(Range(65, 90).ToList().Select(x => (char) x));
-            chars.AddRange(Range(91, 126).ToList().Select(x => (char) x));
+            chars.AddRange(Range(32, 126).ToList().Select(x => (char) x));
 
             return chars;
-        }
-
-        static IEnumerable<int> Range(int start, int end)
-        {
-            var lastNumber = end - start + 1;
-            return Enumerable.Range(start, lastNumber);
         }
     }
 }
