@@ -210,5 +210,11 @@ namespace VaultCredentialRotator
 
             return chars;
         }
+
+        static IEnumerable<int> Range(int start, int end)
+        {
+            var lastNumber = end - start + 1;
+            return Enumerable.Range(start, lastNumber);
+        }
     }
 }
