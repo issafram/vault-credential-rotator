@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +20,7 @@ namespace VaultCredentialRotator
 
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Vault Credential Rotator");
+            Console.WriteLine($"Vault Credential Rotator - Version {Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion}");
             Console.WriteLine("Created by Issa Fram");
             Console.WriteLine();
             
