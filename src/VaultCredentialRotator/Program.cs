@@ -53,6 +53,7 @@ namespace VaultCredentialRotator
 
             var json = JsonConvert.SerializeObject(new {password = passwordStringBuilder.ToString()});
             var baseClientTokenUri = configuration["AWS:BaseClientTokenUri"];
+            baseClientTokenUri = baseClientTokenUri.TrimEnd('/');
             var getClientTokenUri = $@"{baseClientTokenUri}/{username}";
 
             var clientTokenHttpResponseMessage = await GetClientTokenHttpResponseMessageAsync(getClientTokenUri, json);
@@ -120,6 +121,7 @@ namespace VaultCredentialRotator
         private static async Task<HttpResponseMessage> GetAwsCredsAsync(IConfiguration configuration, string role, string clientToken)
         {
             var baseCredentialsUri = configuration["AWS:BaseCredentialsUri"];
+            baseCredentialsUri = baseCredentialsUri.TrimEnd('/');
             var getAwsCredsUri = $@"{baseCredentialsUri}/{role}";
 
             var httpClient = new HttpClient();
