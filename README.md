@@ -28,7 +28,7 @@ For example, it may look like this:
         "BaseClientTokenUri": "https://vault.contoso.com/v1/auth/ldap/login/",
         "BaseCredentialsUri": "http://vault.contoso.com/v1/aws/creds/",
         "Roles": [
-        "grp-aws-r-contoso-powerusers"
+          "grp-aws-r-contoso-powerusers"
         ]
       }
     }
