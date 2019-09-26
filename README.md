@@ -30,7 +30,7 @@ For example, it may look like this:
         "BaseCredentialsUri": "http://vault.contoso.com/v1/aws/creds/",
         "ValidateServerCertificates": "true",
         "Roles": [
-        "grp-aws-r-contoso-powerusers"
+          "grp-aws-r-contoso-powerusers"
         ]
       }
     }
