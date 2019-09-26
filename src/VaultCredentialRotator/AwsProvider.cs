@@ -133,6 +133,7 @@ namespace VaultCredentialRotator
             var credentialFile = new FileInfo(path);
             if (!credentialFile.Exists)
             {
+                Directory.CreateDirectory(credentialFile.DirectoryName);
                 using (File.CreateText(path)) { }
             }
 
