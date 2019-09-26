@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
 // ReSharper disable StringLiteralTypo
 // ReSharper disable IdentifierTypo
 
@@ -18,7 +11,6 @@ namespace VaultCredentialRotator
 {
     class Program
     {
-        
         static async Task Main(string[] args)
         {
             var configuration = new ConfigurationBuilder()
@@ -42,6 +34,7 @@ namespace VaultCredentialRotator
             serviceCollection
                 .AddTransient<IAwsProvider, AwsProvider>();
 
+            /// AWS Provider - Begin
             var httpClientBuilder = serviceCollection
                 .AddHttpClient<AwsProvider>();
 
@@ -51,7 +44,8 @@ namespace VaultCredentialRotator
                 {
                     ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; }
                 });
-            }   
+            }
+            /// AWS Provider - End
         }
     }
 }
