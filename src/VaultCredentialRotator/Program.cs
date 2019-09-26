@@ -37,14 +37,13 @@ namespace VaultCredentialRotator
             /// AWS Provider - Begin
             var httpClientBuilder = 
                 serviceCollection
-                //.AddHttpClient();
-                .AddHttpClient("test");
+                .AddHttpClient("AwsProvider");
 
             if (!bool.Parse(configuration["AWS:ValidateServerCertificates"]))
             {
                 httpClientBuilder.ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
                 {
-                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return false; }
+                    ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; }
                 });
             }
             /// AWS Provider - End

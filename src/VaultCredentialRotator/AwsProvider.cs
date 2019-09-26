@@ -108,18 +108,10 @@ namespace VaultCredentialRotator
 
         private async Task<HttpResponseMessage> GetClientTokenHttpResponseMessageAsync(string getClientTokenUri, string json)
         {
-            var httpClient = this.httpClientFactory.CreateClient("test");
+            var httpClient = this.httpClientFactory.CreateClient("AwsProvider");
+            var result = await httpClient.PostAsync(getClientTokenUri, new StringContent(json, Encoding.UTF8, @"application/json"));
 
-            using (var httpClientHandler = new HttpClientHandler())
-            {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var httpClientOld = new HttpClient(httpClientHandler))
-                {
-                    var result = await httpClient.PostAsync(getClientTokenUri, new StringContent(json, Encoding.UTF8, @"application/json"));
-
-                    return result;
-                }
-            }
+            return result;
         }
 
         private async Task<HttpResponseMessage> GetAwsCredsAsync(IConfiguration configuration, string role, string clientToken)
@@ -128,7 +120,7 @@ namespace VaultCredentialRotator
             baseCredentialsUri = baseCredentialsUri.TrimEnd('/');
             var getAwsCredsUri = $@"{baseCredentialsUri}/{role}";
 
-            var httpClient = this.httpClientFactory.CreateClient();
+            var httpClient = this.httpClientFactory.CreateClient("AwsProvider");
             httpClient.DefaultRequestHeaders.Add("X-Vault-Token", clientToken);
             var result = await httpClient.GetAsync(getAwsCredsUri);
 
