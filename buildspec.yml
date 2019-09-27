@@ -1,0 +1,11 @@
+# vault-credential-rotator build spec
+ 
+version: 0.2 
+phases: 
+ build: 
+   commands: 
+    - dotnet restore
+    - dotnet build
+artifacts:
+  files:
+    - .\*
