@@ -27,7 +27,7 @@ For example, it may look like this:
     {
       "AWS": {
         "BaseClientTokenUri": "https://vault.contoso.com/v1/auth/ldap/login/",
-        "BaseCredentialsUri": "http://vault.contoso.com/v1/aws/creds/",
+        "BaseCredentialsUri": "https://vault.contoso.com/v1/aws/creds/",
         "ValidateServerCertificates": "true",
         "Roles": [
           "grp-aws-r-contoso-powerusers"
