@@ -100,10 +100,14 @@ namespace VaultCredentialRotator
             dynamic awsCredsDeserializedObject = JsonConvert.DeserializeObject(awsCredsContentString);
             var accessKey = (string)awsCredsDeserializedObject.data.access_key;
             var secretKey = (string)awsCredsDeserializedObject.data.secret_key;
+            var leaseID = (string)awsCredsDeserializedObject.lease_id;
+            var leaseDuration = (string)awsCredsDeserializedObject.lease_duration;
 
             Console.WriteLine();
             await SaveCredentialsAsync(accessKey, secretKey);
             Console.WriteLine("Credentials saved!");
+            Console.WriteLine("Vault Lease ID: {leaseID}");
+            Console.WriteLine("Vault Token Duration {leaseDuration} seconds");
         }
 
         private async Task<HttpResponseMessage> GetClientTokenHttpResponseMessageAsync(string getClientTokenUri, string json)
