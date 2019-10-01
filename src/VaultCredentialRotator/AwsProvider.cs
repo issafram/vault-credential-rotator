@@ -106,8 +106,8 @@ namespace VaultCredentialRotator
             await SaveCredentialsAsync(accessKey, secretKey);
             Console.WriteLine("Credentials saved!");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Vault Lease ID: " + leaseID);
-            Console.WriteLine("Vault Token Lease Duration: " + leaseDuration + " seconds");
+            Console.WriteLine($"Vault Lease ID: {leaseID}");
+            Console.WriteLine($"Vault Token Lease Duration: {leaseDuration} seconds");
             Console.ResetColor();
         }
 
