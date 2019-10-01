@@ -12,7 +12,7 @@ for the AWS secrets engine within Vault.
 ## Roadmap 
  - Additional secrets engine configurations (Microsoft Azure, Google Cloud Platform)
  - AppRole Support
- - Lease TTL warning & awareness
+ - ~~Lease TTL warning & awareness~~ Lease duration value presented in `release/1.1.1`
 
 ## Configuration
 Edit the appsettings.json file and add values for the following:
