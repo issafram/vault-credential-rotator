@@ -12,11 +12,10 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  - cmd: dotnet restore ./src/VaultCredentialRotator/VaultCredentialRotator.csproj --verbosity diag
+  - cmd: dotnet restore ./src/VaultCredentialRotator/VaultCredentialRotator.csproj --verbosity m
 build_script:
-  - cmd: dotnet --version
-  # output will be in ./src/bin/debug/netcoreapp2.1/publish
-  - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj
+  # output will be in ./src/bin/Release/netcoreapp2.1/publish
+  - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj -c Release
 after_build:
   # For once the build has completed
 artifacts:
