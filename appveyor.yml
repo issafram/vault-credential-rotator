@@ -14,11 +14,11 @@ before_build:
   # Display minimal restore text
   - cmd: dotnet restore ./src/VaultCredentialRotator/VaultCredentialRotator.csproj --verbosity m
 build_script:
-  # output will be in ./src/bin/Release/netcoreapp2.1/publish
+  # output will be in ./src/bin/Release/netcoreapp2.2/publish
   - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj -c Release
 after_build:
   # For once the build has completed
-  7z a \src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip \src\bin\Release\netcoreapp2.2\publish\*
+  7z a .\src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip .\src\bin\Release\netcoreapp2.2\publish\*
 artifacts:
  - path: '\src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip'
    name: VaultCredentialRotator
