@@ -18,8 +18,9 @@ build_script:
   - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj -c Release
 after_build:
   # For once the build has completed
+  7z a \src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip \src\bin\Release\netcoreapp2.2\publish\*
 artifacts:
- - path: '\src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator-{build}.zip'
+ - path: '\src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip'
    name: VaultCredentialRotator
    type: zip
 clone_depth: 1
