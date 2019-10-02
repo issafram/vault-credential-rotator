@@ -12,8 +12,9 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  - cmd: dotnet restore ./src/VaultCredentialRotator/VaultCredentialRotator.csproj --verbosity m
+  - cmd: dotnet restore ./src/VaultCredentialRotator/VaultCredentialRotator.csproj --verbosity diag
 build_script:
+  - cmd: dotnet --version
   # output will be in ./src/bin/debug/netcoreapp2.1/publish
   - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj
 after_build:
@@ -23,12 +24,12 @@ artifacts:
    name: VaultCredentialRotator
    type: zip
 clone_depth: 1
-test_script:
+#test_script:
   # restore packages for our unit tests
-  - cmd: dotnet restore ./tests/tests.csproj --verbosity m
+#  - cmd: dotnet restore ./tests/tests.csproj --verbosity m
   # run the unit tests (requires changing into the test directory)
-  - cmd: cd tests
-  - cmd: dotnet xunit
+#  - cmd: cd tests
+#  - cmd: dotnet xunit
 on_finish :
   # any cleanup in here
 deploy: off
