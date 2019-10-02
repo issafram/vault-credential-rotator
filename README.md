@@ -1,4 +1,4 @@
-![AppVeyor](https://img.shields.io/appveyor/ci/issafram/vault-credential-rotator)
+[![AppVeyor](https://img.shields.io/appveyor/ci/issafram/vault-credential-rotator)](https://ci.appveyor.com/project/issafram/vault-credential-rotator)
 
 # vault-credential-rotator
 A tool used in conjunction with **HashiCorp Vault** (https://www.vaultproject.io/) to rotate access keys & secret access keys 
