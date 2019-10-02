@@ -18,7 +18,6 @@ build_script:
   - cmd: dotnet publish ./src/VaultCredentialRotator/VaultCredentialRotator.csproj -c Release
 after_build:
   # For once the build has completed
-  # 7z a .\src\bin\Release\netcoreapp2.2\publish\VaultCredentialRotator.zip .\src\bin\Release\netcoreapp2.2\publish\*
 artifacts:
  - path: '\src\VaultCredentialRotator\bin\Release\netcoreapp2.2\publish'
    name: VaultCredentialRotator
